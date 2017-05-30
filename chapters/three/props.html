@@ -10,19 +10,32 @@
 	<div id="app"></div>
 
 	<script type="text/babel">
-		var FirstComponent = React.createClass({
+		var PropsComponent = React.createClass({
+			propTypes: {
+				name: React.PropTypes.string.isRequired,
+				age: React.PropTypes.string.isRequired
+			},
+			getDefaultProps: function() {
+				return {
+					name: 'Default name',
+					age: '99'
+				}
+			},
 			render: function() {
+				let name = this.props.name;
+				let age = this.props.age;
+				console.log();
 				return (
 					<div>
-						<h2>First React component!</h2>
-						<h4>Nice </h4>
+						<p>Name: {name}</p>
+						<p>Age: {age}</p>
 					</div>
 				)
 			}
 		});
 
 		ReactDOM.render(
-			<FirstComponent />,
+			<PropsComponent name="Baldi" age='20' />,
 			document.getElementById('app')
 		);
 	</script>
