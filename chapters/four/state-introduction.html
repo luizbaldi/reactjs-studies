@@ -10,31 +10,35 @@
 	<div id="app"></div>
 
 	<script type="text/babel">
-		var PropsComponent = React.createClass({
-			propTypes: {
-				name: React.PropTypes.string.isRequired,
-				age: React.PropTypes.string.isRequired
+		var NameStateComponent = React.createClass({
+			nameChanged: function(event) {
+				this.setState({
+					name: event.target.value
+				});
 			},
-			getDefaultProps: function() {
+			resetName: function() {
+				this.setState({
+					name: ''
+				});
+			},
+			getInitialState: function() {
 				return {
-					name: 'Default name',
-					age: '99'
+					name: ''
 				}
 			},
 			render: function() {
-				let name = this.props.name;
-				let age = this.props.age;
 				return (
 					<div>
-						<p>Name: {name}</p>
-						<p>Age: {age}</p>
+						<input type="text" onChange={this.nameChanged} />
+						<h2>Text typed: {this.state.name}</h2>
+						<button onClick={this.resetName}>Reset text</button>
 					</div>
 				)
 			}
 		});
 
 		ReactDOM.render(
-			<PropsComponent name="Baldi" age='20' />,
+			<NameStateComponent />,
 			document.getElementById('app')
 		);
 	</script>

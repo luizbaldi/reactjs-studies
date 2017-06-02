@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>State Challenge</title>
+    <script src="https://fb.me/react-0.14.7.js"></script>
+	<script src="https://fb.me/react-dom-0.14.7.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+</head>
+<body>
+	<div id="app"></div>
+
+	<script type="text/babel">
+		var CounterComponent = React.createClass({
+			add: function(value) {
+				let counterValue = parseFloat(this.state.counterValue) + value;
+				this.setState({
+					counterValue: counterValue
+				});
+			},
+			getInitialState: function() {
+				return {
+					counterValue: 0
+				}
+			},
+			render: function() {
+				let counterValue = this.state.counterValue;
+				return (
+					<div className="container center-align">
+						<div className="row">
+							<h3>Counter: {counterValue}</h3>
+						</div>
+						<div className="row">
+							<button onClick={this.add.bind(this, 1)} className="waves-effect waves-light btn">Add 1</button>
+							<button onClick={this.add.bind(this, 5)} className="waves-effect waves-light btn">Add 5</button>
+							<button onClick={this.add.bind(this, 100)} className="waves-effect waves-light btn">Add 100</button>
+						</div>
+					</div>
+				)
+			}
+		});
+
+		ReactDOM.render(
+			<CounterComponent />,
+			document.getElementById('app')
+		);
+	</script>
+</body>
+</html>
