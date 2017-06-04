@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>React tutorial</title>
+        <script src="https://fb.me/react-0.14.7.js"></script>
+        <script src="https://fb.me/react-dom-0.14.7.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+    </head>
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+        let LikesComponent = React.createClass({
+            incrementLikes: function() {
+                ReactDOM.render(
+                    <LikesComponent likes={this.props.likes+1} />,
+                    document.getElementById("app")
+                )
+            },
+            getInitialState: function() {
+                return ({
+                    popular: false
+                })
+            },
+            getDefaultProps: function() {
+                return ({
+                    likes: 0
+                })
+            },
+            componentWillReceiveProps: function(nextProps) {
+                this.setState({
+                    popular: nextProps.likes >= 10
+                })
+            },
+            shouldComponentUpdate: function(nextProps, nextState) {
+                return nextProps.likes % 2 === 0;
+            },
+            render: function() {
+                return (
+                    <div>
+                        <h1>{this.state.isPopular ? "You're popular!" : null}</h1>
+                        <button onClick={this.incrementLikes}>Likes: {this.props.likes}</button>
+                    </div>
+                )
+            },
+            componentDidUpdate: function(prevProps, prevState) {
+                console.log("Previous Props ", prevProps);
+                console.log("Previous State ", prevState);
+            }
+        });
+
+        ReactDOM.render(
+            <LikesComponent />,
+            document.getElementById("app")
+        );
+    </script>
+</body>
+</html>

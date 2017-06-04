@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nested Components LifeCycle</title>
+
+	<!-- React libs -->
+    <script src="https://fb.me/react-0.14.7.js"></script>
+	<script src="https://fb.me/react-dom-0.14.7.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+</head>
+<body>
+	<div id="app"></div>
+
+	<script type="text/babel">
+		let LifecycleComponent = React.createClass({
+			increment: function() {
+				this.setState({
+					counter: this.state.counter + 1
+				});
+			},
+			getInitialState: function() {
+				return ({
+					counter: 0
+				})
+			},
+			render: function() {
+				return (
+					<div>
+						<h4>{this.state.counter}</h4>
+						<button onClick={this.increment}>Click to increment</button>
+					</div>
+				)
+			},
+			componentDidMount: function() {
+				this.interval = setInterval(this.increment, 1000);
+			},
+			componentWillUnmount: function() {
+				clearInterval(this.interval);
+			}
+		});
+
+		let LifecycleContainer = React.createClass({
+			mount: function() {
+				ReactDOM.render(
+					<LifecycleComponent />,
+					document.getElementById('lifecycleComponent')
+				);
+			},
+			unmount: function() {
+				ReactDOM.unmountComponentAtNode(document.getElementById('lifecycleComponent'));
+			},
+			render: function() {
+				return (
+					<div>
+						<button onClick={this.mount}>Mount component</button>
+						<button onClick={this.unmount}>Unmount component</button>
+						<div id="lifecycleComponent"></div>
+					</div>
+				)
+			}
+		});
+		ReactDOM.render(
+			<LifecycleContainer />,
+			document.getElementById('app')
+		);
+	</script>
+</body>
+</html>

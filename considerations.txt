@@ -1,0 +1,5 @@
+Chapter 5 - Stateless Compoenents
+- Facebook recomends to use Stateless compoenents as much as possible, because it's easy to maintain and scale the project
+
+Chapter 6
+- Adding a component to the dom -> mounting the component, and unmounting for the inverse task
