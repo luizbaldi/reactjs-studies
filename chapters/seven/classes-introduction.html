@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class Counter extends React.Component {
+            constructor(props) {
+                // Constructor are used basically to handle the way we use 'this' in ES6 classes
+                super(props);
+                // Constructor are used to load initial states
+                this.state = {
+                    count: 0
+                }
+
+                // Constructors are used to bind functions to this scope
+                this.click = this.click.bind(this);
+            }
+            click() {
+                alert("Clicked!");
+                console.log(this);
+            }
+            render() {
+                return (
+                    <div onClick={this.click}>
+                        <h3>{this.props.text}</h3>
+                    </div>
+                )
+            }
+        }
+
+        Counter.defaultProps = {
+            text: "First Class in React!"
+        };
+
+        Counter.propTypes = {
+            text: React.PropTypes.string
+        }
+
+        ReactDOM.render(
+            <Counter />,
+            document.getElementById("app")
+        );
+    </script>
+</body>
+</html>
