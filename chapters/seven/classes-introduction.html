@@ -17,18 +17,17 @@
                 // Constructor are used to load initial states
                 this.state = {
                     count: 0
-                }
+                };
 
                 // Constructors are used to bind functions to this scope
                 this.click = this.click.bind(this);
             }
-            click() {
-                alert("Clicked!");
-                console.log(this);
+            click(value) {
+                alert("Clicked! Value: " + value);
             }
             render() {
                 return (
-                    <div onClick={this.click}>
+                    <div onClick={() => this.click(10)}>
                         <h3>{this.props.text}</h3>
                     </div>
                 )

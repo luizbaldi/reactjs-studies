@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Challenge - Classes</title>
+    <script src="../../libs/react-0.14.7.js"></script>
+    <script src="../../libs/react-dom-0.14.7.js"></script>
+    <script src="../../libs/babel-browser.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        let BaseCount = (BasicComponent) => class extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    count: 0,
+                    text: "Simple text"
+                }
+                this.incrementCount = this.incrementCount.bind(this);
+            }
+
+            incrementCount() {
+                this.setState({
+                count: this.state.count + 1
+                })
+            }
+
+            render() {
+                return (
+                    <div>
+                        <BasicComponent {...this.state} increment={this.incrementCount}/>
+                    </div>
+                )
+            }
+        }
+
+        const Button = (props) => {
+            return (
+                <button onClick={props.increment}>Count: {props.count}</button>
+            )
+        }
+
+        const Label = (props) => {
+            return (
+                <label onMouseMove={props.increment}>Count: {props.count} </label>
+            )
+        }
+
+        let ExtendedButton = BaseCount(Button);
+        let ExtendedLabel = BaseCount(Label);
+
+        const Container = () => {
+            return(
+                <div>
+                    <ExtendedButton />
+                    <ExtendedLabel />
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            <Container />,
+            document.getElementById('app')
+        );
+    </script>
+</body>
+</html>

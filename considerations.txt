@@ -6,4 +6,4 @@ Chapter 6 - Components Lifecycle
 
 Chapter 7 - Classes
 - An introduction to Classes on ES6 and how React deals with it. The way classes are created and declared is cleaner and things start to be more intuitive.
-
+- If you don't need states, use a stateless component
