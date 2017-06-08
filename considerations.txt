@@ -7,3 +7,14 @@ Chapter 6 - Components Lifecycle
 Chapter 7 - Classes
 - An introduction to Classes on ES6 and how React deals with it. The way classes are created and declared is cleaner and things start to be more intuitive.
 - If you don't need states, use a stateless component
+
+Chapter 8 - Project Setup
+- Dependencies: react, react-dom webpack webpack-dev-server babel-core babel-loader babel-preset-es2015 babel-preset-react, babel-preset-stage-1
+- Commands to setup project:
+touch webpack.config.js
+touch .babelrc
+
+- Fixing webpack "invalid configuration project" error:
+npm uninstall webpack --save-dev
+followed by
+npm install webpack@2.1.0-beta.22 --save-dev
