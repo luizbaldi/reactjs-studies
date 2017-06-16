@@ -20,4 +20,8 @@ followed by
 npm install webpack@2.1.0-beta.22 --save-dev
 
 Chapter 9 - Project
-cp -R eight nine
+- cp -R eight nine
+- To create apps with react without worrying with config, use https://facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html.
+- Creating project:
+create-react-app pokedashboard
+import whatwg-fecth for making requests
