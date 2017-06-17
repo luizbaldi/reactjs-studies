@@ -1,8 +1,7 @@
 import React from 'react';
 import { ListGroup, ListGroupItem, Col } from 'react-bootstrap/lib/';
 
-const PokeList = (props) => {
-	let pokemons = props.pokemons;
+const PokeList = ({pokemons}) => {
 	let pokemonItems = pokemons.map((pokemon, index) => {
 		return (
 			<Col sm={6} md={4} key={'pokemon_' + index}>
