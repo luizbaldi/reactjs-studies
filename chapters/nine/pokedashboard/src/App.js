@@ -14,7 +14,8 @@ class App extends Component {
 			activePage: 1,
 			limit: 25,
 			offset: 0,
-			totalPages: 0
+			totalPages: 0,
+			loaded: false
 		};
 
 		this.loadPokemons = this.loadPokemons.bind(this);
@@ -22,6 +23,9 @@ class App extends Component {
 		this.handleLimitChange = this.handleLimitChange.bind(this);
 	}
 	loadPokemons(url) {
+		this.setState({
+			loaded: false
+		});
 		fetch(url)
 			.then(response => {
 				return response.json();
@@ -31,7 +35,8 @@ class App extends Component {
 				this.setState({
 					pokemons: json.results,
 					totalPages: totalPages,
-					count: json.count
+					count: json.count,
+					loaded: true
 				});
 			})
 			.catch(err => {
@@ -60,18 +65,21 @@ class App extends Component {
 	}
 	render() {
 		return (
-			<div className="container text-center">
-				<PokeHeader title="PokeDashboard" subtitle="Simple Pokemon Panel"/>
-				<PokeFilter
-					numberOptions={[10, 50, 100]}
-					selectedValue={this.state.limit}
-					allValue={this.state.count}
-					onOptionSelected={this.handleLimitChange} />
-				<PokeList pokemons={this.state.pokemons} />
-				<PokePaginator
-					totalPages={this.state.totalPages}
-					activePage={this.state.activePage}
-					handlePaginationSelect={this.handlePaginationSelect} />
+			<div className="container">
+				<div className="text-center">
+					<PokeHeader title="PokeDashboard" subtitle="Simple Pokemon Panel"/>
+					<PokeFilter
+						numberOptions={[10, 50, 100]}
+						selectedValue={this.state.limit}
+						allValue={this.state.count}
+						onOptionSelected={this.handleLimitChange} />
+					<PokeList pokemons={this.state.pokemons}
+						loaded={this.state.loaded} />
+					<PokePaginator
+						totalPages={this.state.totalPages}
+						activePage={this.state.activePage}
+						onSelect={this.handlePaginationSelect} />
+				</div>
 			</div>
 		);
 	}
