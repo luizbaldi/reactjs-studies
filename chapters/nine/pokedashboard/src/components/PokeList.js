@@ -31,13 +31,12 @@ class PokeList extends Component {
 					return response.json();
 				})
 				.then(data => {
-					console.log(data);
 					this.setState({
-						currentPokemon: pokemon
+						currentPokemon: data
 					});
 				})
 				.catch(err => {
-					console.log(err);
+					console.log("Error: " + err);
 				})
 		}
 	}
@@ -60,8 +59,8 @@ class PokeList extends Component {
 
 		return (
 			<div>
-				{ loaded
-					? listPokemonItems
+				{ loaded ?
+					listPokemonItems
 					: <PokeLoader />
 				}
 

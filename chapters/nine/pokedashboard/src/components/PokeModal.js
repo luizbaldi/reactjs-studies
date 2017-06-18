@@ -1,9 +1,9 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap/lib/';
 import PokeLoader from './PokeLoader';
+import PokeModalInfo from './PokeModalInfo';
 
 const PokeModal = ({showModal, handleModalState, pokemon}) => {
-	console.log(pokemon);
 	return (
 		<Modal show={showModal} onHide={() => handleModalState('close')}>
 			<Modal.Header closeButton>
@@ -12,9 +12,7 @@ const PokeModal = ({showModal, handleModalState, pokemon}) => {
 			<Modal.Body>
 				{ pokemon ?
 					(
-						<div className="text-center">
-							<h4>Pokemon: {pokemon.name}</h4>
-						</div>
+						<PokeModalInfo pokemon={pokemon} />
 					)
 					: <PokeLoader />
 				}
