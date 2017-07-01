@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Introduction to Redux</title>
+
+	<link rel="stylesheet" type="text/css" href="./counter.css">
+	<!-- Redux Script -->
+	<script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+</head>
+<body>
+	<div class="container">
+        <h1 id="counter">0</h1>
+        <button class='btn btn-blue' id="add">Add</button>
+        <button class='btn btn-green' id="minus">Minus</button>
+        <button class='btn btn-red' id="reset">Reset</button>
+    </div>
+    <script>
+		// Reducer
+		function counter(currentState, action) {
+			let nextState = {
+				count: currentState.count
+			}
+
+			switch(action.type) {
+				case 'ADD':
+					nextState.count = currentState.count + 1;
+					return nextState;
+				case 'MINUS':
+					let nextCount = currentState.count - 1;
+					if (nextCount >= 0) {
+						nextState.count = currentState.count - 1;
+					}
+					return nextState;
+				case 'RESET':
+					nextState.count = 0;
+					return nextState;
+				default:
+					console.log('Default action');
+					return currentState;
+			}
+		}
+
+		let state = {
+			count: 0
+		}
+		let store = Redux.createStore(counter, state);
+		let counterEl = document.getElementById('counter');
+
+		function render() {
+			let state = store.getState();
+			counterEl.innerHTML = state.count.toString();
+		}
+
+		store.subscribe(render);
+
+		// Actions
+		document.getElementById('add')
+			.addEventListener('click', () => {
+				store.dispatch({
+					type: 'ADD'
+				});
+			});
+		document.getElementById('minus')
+			.addEventListener('click', () => {
+				store.dispatch({
+					type: 'MINUS'
+				});
+			});
+		document.getElementById('reset')
+			.addEventListener('click', () => {
+				store.dispatch({
+					type: 'RESET'
+				});
+			});
+    </script>
+</body>
+</html>
