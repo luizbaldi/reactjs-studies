@@ -33,7 +33,7 @@ import whatwg-fecth for making requests
 
 ## Chapter 10 - Getting started with Redux
 - Quick es6 setup:
-npm install babel-core babel-loader babel-preset-es2015 babel-preset-stage-3 webpack webpack-dev-server --save
+npm install babel-core babel-loader babel-preset-es2015 babel-preset-stage-3 webpack webpack-dev-server babel-preset-react --save
 touch webpack.config.js
 webpack.config.js ->
 
@@ -59,10 +59,18 @@ touch .babelrc
 
 ```
 {
-	"presets": ["es2015", "stage-3"]
+	"presets": ["es2015", "stage-3", "babel-preset-react"]
 }
 ```
 - Another fetch api to use: Axios
+- Basic structure for redux projects:
+	- actions
+	- components
+	- containers
+	- reducers
+	- index.js
+	- store.js
+- Dependencies: react, react-dom, react-redux
 
 ## Creator
 Luiz Baldi
