@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple redux examplee</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.0.4/redux.js"></script>
+</head>
+<body>
+	<script>
+		const counter = (state = null, action) => {
+			switch(action.type) {
+				case 'INCREMENT':
+					return state + 1;
+				case 'DECREMENT':
+					return state - 1;
+				default:
+					return state;
+			}
+		}
+
+		// Creating store
+		const { createStore } = Redux;
+		const store = createStore(counter);
+		console.log(store.getState());
+
+		// Simulating a increment action with dispatch
+		store.dispatch({type: 'INCREMENT'});
+		console.log(store.getState());
+
+		// Creating subscribe method to render ui
+		const render = () => {
+			document.body.innetText = store.getState();
+		};
+
+		store.subscribe(render);
+		render();
+
+		document.addEventListener('click', () => {
+			store.dispatch({type: 'INCREMENT'});
+		});
+	</script>
+</body>
+</html>
