@@ -1,0 +1,11 @@
+{
+  "name": "no-boilerplate-app",
+  "version": "1.0.0",
+  "description": "This Readme file was created basically to store my anotations during the course Create Your First React Native App on Udemy :)\r Obs: For this repo, I'll be coding only for Android, so the commands will be written for this platform.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
