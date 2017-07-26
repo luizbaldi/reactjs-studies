@@ -8,6 +8,11 @@ import { ListItem } from '../components/ListItem';
 class Contacts extends Component {
 	super(props) {
 		constructor(props);
+
+		this.onRowPress = this.onRowPress.bind(this);
+	}
+	onRowPress(item) {
+		this.props.navigation.navigate('Details', item);
 	}
 	render() {
 		return (
@@ -15,7 +20,9 @@ class Contacts extends Component {
 				style={{ backgroundColor: colors.background}}
 				data={contacts}
 				renderItem={({ item }) => 
-					<ListItem contact={item} /> 
+					<ListItem 
+						contact={item}
+						onRowPress={() => this.onRowPress(item)} /> 
 				}
 				keyExtractor={(item) => item.email}
 			/>

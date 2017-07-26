@@ -8,14 +8,14 @@ import {
 } from 'react-native';
 
 import styles, { CHEVRON_SIZE } from './styles';
-import { capitalizeFirstLetter } from '../../helpers/string';
+import { getFullName } from '../../helpers/string';
 import colors from '../../config/colors';
 
-const ListItem = ({ contact, onPress }) => {
-    const name = `${capitalizeFirstLetter(contact.name.first)} ${capitalizeFirstLetter(contact.name.last)}`;
+const ListItem = ({ contact, onRowPress }) => {
+    const name = `${getFullName(contact.name.first, contact.name.last)}`;
     return (
         <TouchableHighlight
-            onPress={onPress}
+            onPress={onRowPress}
             underlayColor={colors.rowUnderlay}
         >
             <View>
