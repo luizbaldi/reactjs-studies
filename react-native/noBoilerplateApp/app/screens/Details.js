@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+
+import { Header } from '../components/UserDetails';
 
 class Contacts extends Component {
 	render() {
-		const person = this.props.navigation.state.params;
+		const contact = this.props.navigation.state.params;
 		return (
-			<View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-				<Text>{`${person.name.first} ${person.name.last}`}</Text>
-			</View>
+			<Header {...contact} />
 		);
 	}
 }
