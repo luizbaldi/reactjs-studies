@@ -17,5 +17,5 @@ export  const ContactsStack = StackNavigator({
         navigationOptions: ({ navigation }) => ({
             title: `${getFullName(navigation.state.params.name.first, navigation.state.params.name.last)}`
         })
-    }
+    },
 }); 

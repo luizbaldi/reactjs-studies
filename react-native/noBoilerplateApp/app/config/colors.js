@@ -6,4 +6,5 @@ export default {
   border: '#cccccc',
   grayBackground: '#f9fafb',
   rowUnderlay: 'rgba(154, 154, 154, 0.25)',
+  actionIcon: '#0789f9'
 };

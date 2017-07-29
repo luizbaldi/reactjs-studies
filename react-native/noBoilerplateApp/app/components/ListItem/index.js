@@ -1,7 +1,7 @@
 import ListItem from './ListItem';
-import styles from './styles';
+import style from './style';
 
 export {
     ListItem,
-    styles
+    style
 };

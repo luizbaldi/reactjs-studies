@@ -6,29 +6,36 @@ import {
     Image,
     Platform
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import styles, { CHEVRON_SIZE } from './styles';
+import style, { CHEVRON_SIZE } from './style';
 import { getFullName } from '../../helpers/string';
 import colors from '../../config/colors';
 
 const ListItem = ({ contact, onRowPress }) => {
+    const iconName = Platform.OS === 'ios' ? 'ios-arrow-forward' : 'md-arrow-forward';
     const name = `${getFullName(contact.name.first, contact.name.last)}`;
     return (
         <TouchableHighlight
             onPress={onRowPress}
             underlayColor={colors.rowUnderlay}
         >
-            <View>
+            <View style={style.row}>
                 <Image 
-                    style={styles.avatar}
+                    style={style.avatar}
                     source={{ uri: contact.picture.thumbnail }}
                 />
                 <View>
-                    <Text style={styles.name}>{name}</Text>
-                    <Text style={styles.email}>{contact.email}</Text>
+                    <Text style={style.name}>{name}</Text>
+                    <Text style={style.email}>{contact.email}</Text>
                 </View>
-                <View style={styles.chevronContainer}>
-                    <Text>Arrow</Text>
+                <View style={style.chevronContainer}>
+                    <Icon
+                        name={iconName}
+                        size={CHEVRON_SIZE}
+                        style={style.chevron}
+                        color={colors.subtleText}
+                    />
                 </View>
             </View>
         </TouchableHighlight>
