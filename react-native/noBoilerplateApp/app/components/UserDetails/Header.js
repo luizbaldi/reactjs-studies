@@ -4,14 +4,14 @@ import { View, Text, Image } from 'react-native';
 import style from './style';
 import { getFullName } from '../../helpers/string';
 
-const Header = (contact) => {
+const Header = ({ picture, name }) => {
     return (
         <View style={style.view}>
             <Image
                 style={style.image}
-                source={{ uri: contact.picture.large }}
+                source={{ uri: picture.large }}
             />
-            <Text style={style.text}>{getFullName(contact.name.first, contact.name.last)}</Text>
+            <Text style={style.text}>{getFullName(name.first, name.last)}</Text>
         </View>
     );
 }

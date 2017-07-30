@@ -6,13 +6,12 @@ import {
 import ActionRow from './ActionRow';
 import style from './style';
 
-const Actions = (contact) => {
-    const { email, phone, cell } = contact;
+const Actions = ({ email, phone, cell }) => {
     const emailIcon = Platform.OS === 'ios' ? 'ios-mail' : 'md-mail';
     const textIcon = Platform.OS === 'ios' ? 'ios-text' : 'md-text';
     const phoneIcon = Platform.OS === 'ios' ? 'ios-call' : 'md-call';
     return (
-        <View style={style.actionView} >
+        <View style={style.actionContainer} >
             <ActionRow
                 label={'email'}
                 value={email}

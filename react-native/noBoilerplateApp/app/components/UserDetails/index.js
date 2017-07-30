@@ -1,9 +1,11 @@
+import style from './style';
 import Header from './Header';
 import Actions from './Actions';
-import style from './style';
+import Info from './Info';
 
 export {
     Header,
     Actions,
+    Info,
     style
 };

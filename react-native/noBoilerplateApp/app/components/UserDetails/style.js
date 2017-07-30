@@ -20,7 +20,7 @@ export default StyleSheet.create({
         marginBottom: 10, 
         fontSize: 22
     },
-    actionView: {
+    actionContainer: {
         paddingHorizontal: 18,
         paddingVertical: 15,
         backgroundColor: colors.grayBackground,
@@ -29,7 +29,6 @@ export default StyleSheet.create({
         borderTopColor: colors.border,
         borderBottomColor: colors.border
     },
-    actionInfo: {},
     actionRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
