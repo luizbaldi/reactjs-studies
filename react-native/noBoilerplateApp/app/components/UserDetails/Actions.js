@@ -1,13 +1,10 @@
 import React from 'react';
 import { 
-    View, 
-    Text,
-    Platform,
-    TouchableOpacity
+    View,
+    Platform
 } from 'react-native';
-import style, { ICON_SIZE } from './style';
-import colors from '../../config/colors';
-import Icon from 'react-native-vector-icons/Ionicons';
+import ActionRow from './ActionRow';
+import style from './style';
 
 const Actions = (contact) => {
     const { email, phone, cell } = contact;
@@ -16,63 +13,40 @@ const Actions = (contact) => {
     const phoneIcon = Platform.OS === 'ios' ? 'ios-call' : 'md-call';
     return (
         <View style={style.actionView} >
-            <View style={style.actionRow}>
-                <View style={style.actionInfo}>
-                    <Text style={style.actionText}>email</Text>
-                    <Text style={style.actionValue}>{email}</Text>
-                </View>
-                <View style={style.actionIcons}>
-                    <TouchableOpacity onPress={() => null}>
-                        <Icon
-                            name={emailIcon}
-                            size={ICON_SIZE}
-                            style={style.actionIcon}
-                            color={colors.actionIcon}
-                        />
-                    </TouchableOpacity>
-                </View>
-            </View>
-            <View style={style.actionRow}>
-                <View style={style.actionInfo}>
-                    <Text style={style.actionText}>cell</Text>
-                    <Text style={style.actionValue}>{cell}</Text>
-                </View>
-                <View style={style.actionIcons}>
-                    <TouchableOpacity onPress={() => null}>
-                        <Icon
-                            name={phoneIcon}
-                            size={ICON_SIZE}
-                            style={style.actionIcon}
-                            color={colors.actionIcon}
-                        />
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => null}>
-                        <Icon
-                            name={textIcon}
-                            size={ICON_SIZE}
-                            style={style.actionIcon}
-                            color={colors.actionIcon}
-                        />
-                    </TouchableOpacity>
-                </View>
-                
-            </View>
-            <View style={style.actionRow}>
-                <View style={style.actionInfo}>
-                    <Text style={style.actionText}>home</Text>
-                    <Text style={style.actionValue}>{phone}</Text>
-                </View>
-                <View style={style.actionIcons}>
-                    <TouchableOpacity onPress={() => null}>
-                        <Icon
-                            name={phoneIcon}
-                            size={ICON_SIZE}
-                            style={style.actionIcon}
-                            color={colors.actionIcon}
-                        />
-                    </TouchableOpacity>
-                </View>
-            </View>
+            <ActionRow
+                label={'email'}
+                value={email}
+                actions={[
+                    {
+                        icon: emailIcon,
+                        onPress: () => null
+                    }
+                ]}
+            />
+            <ActionRow
+                label={'cell'}
+                value={cell}
+                actions={[
+                    {
+                        icon: phoneIcon,
+                        onPress: () => null
+                    },
+                    {
+                        icon: textIcon,
+                        onPress: () => null
+                    }
+                ]}
+            />
+            <ActionRow
+                label={'home'}
+                value={phone}
+                actions={[
+                    {
+                        icon: phoneIcon,
+                        onPress: () => null
+                    }
+                ]}
+            />
         </View>
     );
 };
