@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { MainTabs } from './config/router.js';
+import { MainDrawer } from './config/router.js';
 
 const App = () => {
-	return <MainTabs />;
+	return <MainDrawer />;
 };
 
 export default App;
