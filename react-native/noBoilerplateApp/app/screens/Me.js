@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView } from 'react-native';
+import { Header, Actions, Info } from '../components/UserDetails';
+import { me } from '../config/data';
 
 class Contacts extends Component {
 	render() {
 		return (
-			<View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-				<Text>Me Screen</Text>
-			</View>
+			<ScrollView>
+				<Header 
+					{...me}
+					button={{
+						label: 'Edit Profile',
+						onPress: () => null
+					}}
+				/>
+				<Actions {...me} />
+				<Info {...me} />
+			</ScrollView>
 		);
 	}
 }

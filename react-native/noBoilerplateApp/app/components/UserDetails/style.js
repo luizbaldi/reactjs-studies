@@ -50,5 +50,18 @@ export default StyleSheet.create({
     actionIcon: {
         justifyContent: 'flex-end',
         marginLeft: 18
+    },
+    headerButtonText: {
+        fontSize: 16,
+        color: '#fafafa',
+        fontWeight: '500'
+    },
+    headerButton: {
+        backgroundColor: colors.actionIcon,
+        paddingVertical: 15,
+        paddingHorizontal: 40,
+        marginBottom: 15,
+        marginTop: 10,
+        borderRadius: 4
     }
 });
