@@ -1,4 +1,4 @@
-export default () => {
+const userReducer = () => {
     return [
         {
             id: 1,
@@ -24,6 +24,7 @@ export default () => {
             description: "Madi likes her dog but it is really annoying.",
             thumbnail: "http://i.imgur.com/4EMtxHB.png"
         }
-    ]
-    
+    ]   
 }
+
+export default userReducer;

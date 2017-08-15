@@ -1,5 +1,6 @@
 import React from 'react';
 import UserList from './userList';
+import UserDetail from './userDetail';
 
 const App = () => (
     <div>
@@ -7,6 +8,7 @@ const App = () => (
         <UserList />
         <hr/>
         <h2>User Details:</h2>
+        <UserDetail />
     </div>
 );
 
