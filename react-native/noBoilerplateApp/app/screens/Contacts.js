@@ -19,6 +19,15 @@ class Contacts extends Component {
 			<FlatList
 				style={{ backgroundColor: colors.background}}
 				data={contacts}
+				ItemSeparatorComponent={
+					<View style={{
+						height: 1,
+						width: "86%",
+						backgroundColor: "#CED0CE",
+						marginLeft: "14%"
+						}}
+					/>
+				}
 				renderItem={({ item }) => 
 					<ListItem 
 						contact={item}

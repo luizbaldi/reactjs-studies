@@ -35,6 +35,7 @@ const ListItem = ({ contact, onRowPress }) => {
                         size={CHEVRON_SIZE}
                         style={style.chevron}
                         color={colors.subtleText}
+                        
                     />
                 </View>
             </View>
