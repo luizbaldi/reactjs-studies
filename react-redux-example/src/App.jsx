@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import StuffList from './components/StuffList';
 
 class App extends Component {
     render() {
         return (
-            <h2>Hi :)</h2>
+            <div>
+                <h2>Hi :)</h2>
+                <StuffList />
+            </div>
         );
     }
 }

@@ -18,7 +18,6 @@ export function fetchStuff() {
             mode: 'cors',
             credentials: 'include',
             headers: {
-                'x-api-key': apiKey,
                 'Accept': 'application/json'
             }
         })
