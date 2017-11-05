@@ -2,6 +2,9 @@
 This Readme file was created basically to store my anotations during the course Create Your First React Native App on Udemy :)
 Obs: For this repo, I'll be coding only for Android, so the commands will be written for this platform.
 
+## Link
+Course link: https://www.udemy.com/create-your-first-react-native-app/learn/
+
 ## Anotations
 ### Preparing Environment
 #### React Native Dependencies (without a boilerplate)
