@@ -9,7 +9,7 @@ export default function stuff(state = initialState.stuff, action) {
             return action;
         case RECEIVE_STUFF:
             console.log('RECEIVE_STUFF action');
-            return newState;
+            return state;
         default:
             return state;
     }

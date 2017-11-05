@@ -1,7 +1,7 @@
 import * as types from './actionTypes';
 
 function url() {
-    return 'www.url.com'
+    return 'https://api.myjson.com/bins/b32kf'
 }
 
 export function receiveStuff(json) {
@@ -13,15 +13,10 @@ export function receiveStuff(json) {
 
 export function fetchStuff() {
     return dispatch => {
-        return fetch(url(), {
-            method: 'GET',
-            mode: 'cors',
-            credentials: 'include',
-            headers: {
-                'Accept': 'application/json'
-            }
+        return window.fetch(url(), {
+            method: 'GET'
         })
-        .then(response => response.json())
+        .then(response => response.text())
         .then(json => dispatch(receiveStuff(json)))
     };
 }
