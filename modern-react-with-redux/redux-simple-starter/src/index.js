@@ -1,8 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+/* Components */
+import SearchBar from './components/SearchBar.jsx';
+
+const youtubeKey = 'AIzaSyC7Weih-qcAk2hLldEqKy-JBi1KaSnSq_M';
+ 
 const App = () => (
-    <div>Potatoe!</div>
+    <div>
+        <span>Potatoe!</span>
+        <SearchBar />
+    </div>
 )
 
 ReactDOM.render(
