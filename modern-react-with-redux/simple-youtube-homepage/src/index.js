@@ -8,6 +8,7 @@ import VideoDetail from './components/VideoDetail.jsx'
 
 /* Config */
 import YTSearch from 'youtube-api-search'
+import _ from 'lodash';
 
 const youtubeKey = 'AIzaSyC7Weih-qcAk2hLldEqKy-JBi1KaSnSq_M'
 
@@ -20,7 +21,11 @@ class App extends Component {
             selectedVideo: null
         }
 
-        YTSearch({ key: youtubeKey, term: 'Potatoe' }, videos => {
+        this.videoSearch = _.debounce(this.videoSearch.bind(this), 500)
+        this.videoSearch('Potatoe')
+    }
+    videoSearch(term) {
+        YTSearch({ key: youtubeKey, term }, videos => {
             this.setState({ 
                 videos,
                 selectedVideo: videos[0]
@@ -30,8 +35,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <span>Potatoe!</span>
-                <SearchBar />
+                <SearchBar onSearchTermChange={this.videoSearch} />
                 <VideoDetail video={this.state.selectedVideo} />
                 <VideoList 
                     videos={this.state.videos}
