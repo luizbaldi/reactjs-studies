@@ -11,14 +11,14 @@ class StuffList extends Component {
     renderData() {
         return (
             <div>
-                {this.props.stuffs}
+                {this.props.stuff}
             </div> 
         );
     }
     render() {
         return (
-            <div className="">
-                {this.props.stuffs.length > 0 ?
+            <div>
+                {this.props.stuff.length > 0 ?
                     this.renderData()
                     : <div>
                        No data to display 
@@ -31,12 +31,12 @@ class StuffList extends Component {
 
 StuffList.propTypes = {
     stuffActions: PropTypes.object,
-    stuffs: PropTypes.array
+    stuff: PropTypes.array
 };
 
 function mapStateToProps(state) {
     return {
-        stuffs: state.stuffs
+        stuff: state.stuff
     };
 }
 
