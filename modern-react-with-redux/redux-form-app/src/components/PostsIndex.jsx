@@ -20,9 +20,11 @@ class PostsIndex extends Component {
         <h3>Posts</h3>
         <ul className="list-group">
           {_.map(this.props.posts, post => (
-            <li className="list-group-item" key={post.id}>
-              <span>{post.title}</span>
-            </li>
+            <Link to={`/posts/${post.id}`} key={post.id}>
+              <li className="list-group-item">
+                <span>{post.title}</span>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
