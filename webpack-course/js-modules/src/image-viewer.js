@@ -1,3 +1,5 @@
+import '../styles/image-viewer.css';
+
 const renderImage = () => {
   const image = document.createElement('img');
   

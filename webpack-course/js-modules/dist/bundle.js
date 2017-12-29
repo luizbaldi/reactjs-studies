@@ -76,6 +76,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+__webpack_require__(3);
+
 var renderImage = function renderImage() {
   var image = document.createElement('img');
 
@@ -100,7 +103,13 @@ var sum = function sum(numOne, numTwo) {
   return numOne + numTwo;
 };
 
-exports.default = sum;
+var renderSum = function renderSum() {
+  var spamEl = document.createElement('span');
+  spamEl.innerHTML = 'The result of 10 + 15 is ' + sum(10, 15);
+  document.body.appendChild(spamEl);
+};
+
+exports.default = renderSum;
 
 /***/ }),
 /* 2 */
@@ -119,10 +128,14 @@ var _imageViewer2 = _interopRequireDefault(_imageViewer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var total = (0, _sum2.default)(10, 5);
-console.log(total);
-
+(0, _sum2.default)();
 (0, _imageViewer2.default)();
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

@@ -1,7 +1,5 @@
-import sum from './sum';
+import renderSum from './sum';
 import renderImage from './image-viewer';
 
-const total = sum(10, 5);
-console.log(total);
-
+renderSum();
 renderImage();
