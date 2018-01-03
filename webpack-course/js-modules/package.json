@@ -15,7 +15,10 @@
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "file-loader": "^1.1.6",
+    "image-webpack-loader": "^3.4.2",
     "style-loader": "^0.19.1",
+    "url-loader": "^0.6.2",
     "webpack": "^2.2.0-rc.0"
   }
 }
