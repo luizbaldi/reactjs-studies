@@ -6,4 +6,4 @@ const renderSum = () => {
   document.body.appendChild(spamEl);
 };
 
-export default renderSum;
+export default renderSum; 

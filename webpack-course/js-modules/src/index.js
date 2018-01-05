@@ -1,5 +1,5 @@
 import renderSum from './sum';
-import renderImages from './image-viewer';
+import renderButton from './renderButton';
 
 renderSum();
-renderImages(); 
+renderButton(); 
