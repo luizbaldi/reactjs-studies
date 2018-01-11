@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && webpack"
+    "build": "rimraf dist && webpack",
+    "start": "webpack-dev-server --open"
   },
   "repository": "https://github.com/StephenGrider/WebpackProject",
   "author": "",
@@ -30,6 +31,7 @@
     "html-webpack-plugin": "^2.30.1",
     "rimraf": "^2.6.2",
     "style-loader": "^0.13.1",
-    "webpack": "2.2.0-rc.0"
+    "webpack": "2.2.0-rc.0",
+    "webpack-dev-server": "2.2.0-rc.0"
   }
 }
