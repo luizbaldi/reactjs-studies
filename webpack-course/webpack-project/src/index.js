@@ -9,14 +9,12 @@ import '../style/materialize.css';
 import '../style/react-range.css';
 import '../style/style.css';
 
-const App = () => {
-  const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
-  return (
-    <Provider store={store}>
-      <Routes />
-    </Provider>
-  );
-};
+const App = () => (
+  <Provider store={store}>
+    <Routes />
+  </Provider>
+);
 
 ReactDOM.render(<App />, document.getElementById('root'));

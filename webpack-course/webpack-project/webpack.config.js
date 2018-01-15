@@ -30,7 +30,7 @@ module.exports = {
       {
         use: 'babel-loader',
         test: /\.js$/,
-        exclude: /node_modules/
+       	 exclude: /node_modules/
       },
       {
         use: ['style-loader', 'css-loader'],
@@ -44,6 +44,9 @@ module.exports = {
     }),
     new htmlWebpackPlugin({ 
       template: 'src/index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ]
 };
