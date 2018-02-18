@@ -1,32 +1,31 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const Header = ({ title }) => (
-  <View style={styles.container}>
-    <Text style={styles.text}>{title}</Text>
-  </View>
+  <Container>
+    <Title>{title}</Title>
+  </Container>
 );
 
 Header.propTypes = {
   title: PropTypes.string.isRequired
 };
 
-const styles = {
-  container: {
-    backgroundColor: '#F8F8F8',
-    justifyContent: 'center',
-    height: 70,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 2,
-    position: 'relative'
-  },
-  text:  {
-    fontSize: 22
-  }
-}
+const Container = styled.View`
+  background-color: #F8F8F8;
+  justify-content: center;
+  height: 70;
+  align-items: center;
+  shadow-color: #000;
+  shadow-opacity: 0.2;
+  elevation: 2;
+  position: relative;
+`;
+
+const Title = styled.Text`
+  font-size: 22;
+`;
 
 export default Header;

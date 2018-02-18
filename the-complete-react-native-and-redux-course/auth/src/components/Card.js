@@ -1,32 +1,18 @@
 import React from 'react';
-import { View } from 'react-native';
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Card = ({ children }) => (
-  <View style={style.container}>
-    {children}
-  </View>
-);
-
-Card.propTypes = {
-  children: PropTypes.node.isRequired
-};
-
-const style = {
-  container: {
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 1,
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 10
-  }
-}
+const Card = styled.View`
+  border-width: 1px;
+  border-radius: 2px;
+  border-color: #ddd;
+  border-bottom-width: 0;
+  shadow-color: #000;
+  shadow-opacity: 0.1;
+  shadow-radius: 2px;
+  elevation: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 10px;
+`;
 
 export default Card;
