@@ -5,7 +5,6 @@ import Input from './Input';
 import Button from './Button';
 import { Text } from 'react-native';
 import styled from 'styled-components';
-import firebase from 'firebase';
 import Spinner from './Spinner';
 import ErrorText from './ErrorText';
 

@@ -7,3 +7,7 @@ export const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
 
 /* Employee Form */
 export const EMPLOYEE_INPUT_UPDATE = 'EMPLOYEE_INPUT_UPDATE';
+export const EMPLOYEE_RESET = 'EMPLOYEE_RESET';
+
+/* Employee List */
+export const FETCH_EMPLOYEES = 'FETCH_EMPLOYEES';
