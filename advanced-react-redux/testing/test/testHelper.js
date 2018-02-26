@@ -1,23 +1,28 @@
-import _$ from 'jquery'
+import { jsdom } from 'jsdom' // toDo: Upgrade jsom version alter on
+import jquery from 'jquery'
+import { renderIntoDocument, Simulate } from 'react-addons-test-utils'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import TestUtils from 'react-addons-test-utils'
-import jsdom from 'jsdom'
 import chai from 'chai'
 import chaiJquery from 'chai-jquery'
+
+// Redux
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducers from '../src/reducers'
 
-global.document = jsdom.jsdom('<!doctype html><html><body></body></html>')
+// Set up testing environment to simulate DOM
+const html = '<!doctype html><html><body></body></html>'
+global.document = jsdom(html)
 global.window = global.document.defaultView
-global.navigator = global.window.navigator
-const $ = _$(window)
+const $ = jquery(global.window)
 
+// Set up chai-jquery
 chaiJquery(chai, chai.util, $)
 
+// Build 'renderComponent' helper that should render a given react class
 const renderComponent = (ComponentClass, props = {}, state = {}) => {
-  const componentInstance = TestUtils.renderIntoDocument(
+  const componentInstance = renderIntoDocument(
     <Provider store={createStore(reducers, state)}>
       <ComponentClass {...props} />
     </Provider>
@@ -26,11 +31,12 @@ const renderComponent = (ComponentClass, props = {}, state = {}) => {
   return $(ReactDOM.findDOMNode(componentInstance))
 }
 
-$.fn.simulate = function (eventName, value) {
+// Build helper for simulating events
+$.fn.simulate = (eventName, value) => {
   if (value) {
     this.val(value)
   }
-  TestUtils.Simulate[eventName](this[0])
+  Simulate[eventName](this[0])
 }
 
 export { renderComponent }
