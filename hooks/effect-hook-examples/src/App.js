@@ -2,21 +2,31 @@ import React, { useState, useEffect } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-const App = () => {
+/*
+  personal notes
+  - every change on hook state will fire all effects (useEffect)
+  - cleanup effect is called only after first re-render
+  - hooks are so fucking amazing that you can optimize the effect passing an array as second argument! (this is REALLY awesome)
+*/
+
+function Counter (name = 'default') {
   const [count, setCount] = useState(0)
-  const [secondaryCount, setSecondaryCounter] = useState(0)
-  const [input, setInputValue] = useState('')
 
   useEffect(() => {
-    /* notice that every change on hook state will fire useEffect */
-    /* 'Effect fired' log is called on first render (like componentDidMount) */
-    console.log('Effect fired')
+    console.log(`Counter ${name} effect started`)
 
     return () => {
-      /* notice that cleanup effect is called only after first re-render */
-      console.log('Cleanup effect fired')
+      console.log(`Cleanup ${name} effect fired`)
     }
-  })
+  }, [count])
+
+  return [count, setCount]
+}
+
+const App = () => {
+  const [count, setCount] = Counter('primary')
+  const [secondaryCount, setSecondaryCounter] = Counter('secondary')
+  const [input, setInputValue] = useState('')
 
   return (
     <div className="App">
