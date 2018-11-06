@@ -9,7 +9,7 @@ import './App.css'
   - hooks are so fucking amazing that you can optimize the effect passing an array as second argument! (this is REALLY awesome)
 */
 
-function Counter (name = 'default') {
+function useCounter (name = 'default') {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -24,8 +24,8 @@ function Counter (name = 'default') {
 }
 
 const App = () => {
-  const [count, setCount] = Counter('primary')
-  const [secondaryCount, setSecondaryCounter] = Counter('secondary')
+  const [count, setCount] = useCounter('primary')
+  const [secondaryCount, setSecondaryCounter] = useCounter('secondary')
   const [input, setInputValue] = useState('')
 
   return (
