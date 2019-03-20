@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import logo from './logo.svg'
+import './App.css'
+import useWindowSize from './hooks/useWindowSize'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-      </div>
-    );
-  }
+const App = () => {
+  const { width, height } = useWindowSize()
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>Window width: {width}</p>
+        <p>Window height: {height}</p>
+      </header>
+    </div>
+  )
 }
 
-export default App;
+export default App
