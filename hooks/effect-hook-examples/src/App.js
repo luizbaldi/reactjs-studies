@@ -6,10 +6,11 @@ import './App.css'
   personal notes
   - every change on hook state will fire all effects (useEffect)
   - cleanup effect is called only after first re-render
-  - hooks are so fucking amazing that you can optimize the effect passing an array as second argument! (this is REALLY awesome)
+  - hooks are so fucking amazing that you can optimize the effect
+    passing an array as second argument! (this is REALLY awesome)
 */
 
-function useCounter (name = 'default') {
+function useCounter(name = 'default') {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -37,12 +38,24 @@ const App = () => {
         </p>
         <div className="counter-container">
           <div className="counter">
-            <p>Primary Counter: {count}</p>
-            <button onClick={() => setCount(count + 1)}>Increment</button>
+            <p>
+              Primary Counter: {count}
+            </p>
+            <button
+              onClick={() => setCount(count + 1)}
+              type='button'
+            >
+              Increment
+            </button>
           </div>
           <div className="counter">
             <p>Secondary Counter: {secondaryCount}</p>
-            <button onClick={() => setSecondaryCounter(secondaryCount + 1)}>Increment</button>
+            <button
+              onClick={() => setSecondaryCounter(secondaryCount + 1)}
+              type='button'
+            >
+              Increment
+            </button>
           </div>
         </div>
         <p>
@@ -52,7 +65,7 @@ const App = () => {
           type="text"
           value={input}
           placeholder='Type random things here'
-          onChange={(e) => setInputValue(e.target.value)}
+          onChange={e => setInputValue(e.target.value)}
         />
       </header>
     </div>
