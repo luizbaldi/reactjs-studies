@@ -1,10 +1,12 @@
 module.exports = {
   extends: 'airbnb',
   plugins: [
-    'react-hooks'
+    'react-hooks',
+    'jest'
   ],
   env: {
-    browser: true
+    browser: true,
+    'jest/globals': true
   },
   rules: {
     'react-hooks/rules-of-hooks': 'error',
