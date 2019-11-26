@@ -13,7 +13,13 @@
   },
   "dependencies": {
     "react": "16.9.0",
-    "react-native": "0.61.3"
+    "react-native": "0.61.3",
+    "react-native-gesture-handler": "^1.5.1",
+    "react-native-reanimated": "^1.4.0",
+    "react-native-screens": "^2.0.0-alpha.12",
+    "react-navigation": "^4.0.10",
+    "react-navigation-stack": "^1.10.3",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -21,6 +27,7 @@
     "@react-native-community/eslint-config": "^0.0.5",
     "@types/react": "^16.9.11",
     "@types/react-native": "^0.60.22",
+    "@types/styled-components": "^4.4.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "eslint": "^6.1.0",
