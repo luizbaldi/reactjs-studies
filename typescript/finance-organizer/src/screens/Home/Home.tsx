@@ -1,18 +1,35 @@
 import React from 'react';
+import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-const Home = () => (
-  <StyledContainer>
-    <StyledHeader>
-      <StyledTitle>Year 2019</StyledTitle>
-      <StyledRightIcon>
-        <Icon name='setting' />
-      </StyledRightIcon>
-    </StyledHeader>
-    <StyledContent />
-  </StyledContainer>
-);
+import { useMonthsData } from './hooks';
+
+import MonthBox from './components/MonthBox';
+
+const Home = () => {
+  const months = useMonthsData();
+
+  return (
+    <StyledContainer>
+      <StyledHeader>
+        <StyledTitle>Year 2019</StyledTitle>
+        <StyledRightIcon>
+          <Icon name='setting' />
+        </StyledRightIcon>
+      </StyledHeader>
+      <StyledContent>
+        <FlatList
+          data={Object.keys(months)}
+          keyExtractor={month => month}
+          renderItem={({ item }) => <MonthBox month={item} />}
+          numColumns={2}
+          horizontal={false}
+        />
+      </StyledContent>
+    </StyledContainer>
+  );
+};
 
 Home.navigationOptions = {
   header: null
