@@ -1,7 +1,10 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components/native';
 import { useNavigation } from 'react-navigation-hooks';
+import LinearGradient from 'react-native-linear-gradient';
+
+import { getMonthInfo } from '../utils';
 
 type Props = {
   month: string;
@@ -9,28 +12,50 @@ type Props = {
 
 const MonthBox = ({ month }: Props) => {
   const { navigate } = useNavigation();
+  const { progress, total, bgColor } = getMonthInfo();
 
   const onMonthPress = () => {
     navigate('MonthDetail', { month });
   };
 
   return (
-    <StyledContainer onPress={onMonthPress}>
-      <StyledText>{month}</StyledText>
-    </StyledContainer>
+    <StyledButton onPress={onMonthPress}>
+      <StyledContainer colors={bgColor}>
+        <View>
+          <StyledText>{month}</StyledText>
+          <StyledProgressText>
+            {progress} / {total}
+          </StyledProgressText>
+        </View>
+      </StyledContainer>
+    </StyledButton>
   );
 };
 
-const StyledContainer = styled.TouchableOpacity`
+const StyledButton = styled.TouchableOpacity`
+  flex: 1;
+`;
+
+const StyledContainer = styled(LinearGradient)`
   flex: 1;
   margin: 6px;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  border-width: ${StyleSheet.hairlineWidth};
-  padding-vertical: 18px;
+  min-height: 100px;
 `;
 
-const StyledText = styled.Text``;
+const StyledText = styled.Text`
+  text-align: center;
+  color: white;
+  font-size: 16px;
+`;
+
+const StyledProgressText = styled.Text`
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 6px;
+`;
 
 export default MonthBox;

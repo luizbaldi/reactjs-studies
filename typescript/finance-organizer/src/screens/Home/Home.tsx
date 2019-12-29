@@ -1,7 +1,7 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
-import Icon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/Feather';
 
 import { useMonthsData } from './hooks';
 
@@ -15,7 +15,7 @@ const Home = () => {
       <StyledHeader>
         <StyledTitle>Year 2019</StyledTitle>
         <StyledRightIcon>
-          <Icon name='setting' />
+          <Icon name='settings' size={20} />
         </StyledRightIcon>
       </StyledHeader>
       <StyledContent>
@@ -42,15 +42,14 @@ const StyledContainer = styled.SafeAreaView`
 
 const StyledTitle = styled.Text`
   font-size: 18px;
-  font-weight: bold;
   text-align: center;
 `;
 
 const StyledHeader = styled.View`
   padding: 16px;
   justify-content: center;
-  border-bottom-width: 1px;
-  border-bottom-color: black;
+  border-bottom-width: ${StyleSheet.hairlineWidth};
+  border-bottom-color: #757575;
 `;
 
 const StyledRightIcon = styled.TouchableOpacity`
