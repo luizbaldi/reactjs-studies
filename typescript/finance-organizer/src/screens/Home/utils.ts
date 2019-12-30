@@ -1,11 +1,11 @@
+import { Colors } from './types';
+
 const colors = {
   empty: ['#ef9a9a', '#ef5350', '#e53935'],
   progress: ['#FFCC80', '#FFB74D', '#FFA726'],
   completed: ['#AED581', '#9CCC65', '#8BC34A'],
   disabled: ['#CFD8DC', '#B0BEC5', '#90A4AE']
 };
-
-type Colors = 'empty' | 'progress' | 'completed' | 'disabled';
 
 const getColorKey = (progress: number | null, total: number): Colors => {
   if (progress === 0) return 'empty';

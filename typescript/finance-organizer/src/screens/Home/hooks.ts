@@ -1,52 +1,66 @@
-export const useMonthsData = () => {
-  return {
-    January: {
+import { Month } from './types';
+
+export const useMonthsData = (): Month[] => {
+  return [
+    {
+      name: 'January',
       disabled: false,
-      goals: {}
+      goals: []
     },
-    February: {
+    {
+      name: 'February',
       disabled: false,
-      goals: {}
+      goals: []
     },
-    March: {
+    {
+      name: 'March',
       disabled: false,
-      goals: {}
+      goals: []
     },
-    April: {
+    {
+      name: 'April',
       disabled: false,
-      goals: {}
+      goals: []
     },
-    May: {
+    {
+      name: 'May',
       disabled: false,
-      goals: {}
+      goals: []
     },
-    June: {
+    {
+      name: 'June',
       disabled: false,
-      goals: {}
+      goals: []
     },
-    July: {
+    {
+      name: 'July',
       disabled: false,
-      goals: {}
+      goals: []
     },
-    August: {
+    {
+      name: 'August',
       disabled: false,
-      goals: {}
+      goals: []
     },
-    September: {
+    {
+      name: 'September',
       disabled: false,
-      goals: {}
+      goals: []
     },
-    October: {
+    {
+      name: 'October',
       disabled: false,
-      goals: {}
+      goals: []
     },
-    November: {
+    {
+      name: 'November',
       disabled: false,
-      goals: {}
+      goals: []
     },
-    December: {
+    {
+      name: 'December',
       disabled: false,
-      goals: {}
+      goals: []
     }
-  };
+  ];
 };

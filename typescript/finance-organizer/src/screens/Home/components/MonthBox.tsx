@@ -4,10 +4,11 @@ import styled from 'styled-components/native';
 import { useNavigation } from 'react-navigation-hooks';
 import LinearGradient from 'react-native-linear-gradient';
 
+import { Month } from '../types';
 import { getMonthInfo } from '../utils';
 
 type Props = {
-  month: string;
+  month: Month;
 };
 
 const MonthBox = ({ month }: Props) => {
@@ -22,7 +23,7 @@ const MonthBox = ({ month }: Props) => {
     <StyledButton onPress={onMonthPress}>
       <StyledContainer colors={bgColor}>
         <View>
-          <StyledText>{month}</StyledText>
+          <StyledText>{month.name}</StyledText>
           <StyledProgressText>
             {progress} / {total}
           </StyledProgressText>
