@@ -1,27 +1,56 @@
-import { Colors } from './types';
+import { getMonth } from '../../utils/storage';
+import { Colors, MonthInfo } from './types';
 
-const colors = {
-  empty: ['#ef9a9a', '#ef5350', '#e53935'],
-  progress: ['#FFCC80', '#FFB74D', '#FFA726'],
-  completed: ['#AED581', '#9CCC65', '#8BC34A'],
-  disabled: ['#CFD8DC', '#B0BEC5', '#90A4AE']
-};
-
-const getColorKey = (progress: number | null, total: number): Colors => {
+const getProgressKey = (progress?: number, total?: number): Colors => {
   if (progress === 0) return 'empty';
 
-  if (typeof progress === 'number' && progress < total) return 'progress';
+  if (typeof progress === 'number' && typeof total === 'number') {
+    if (progress < total) {
+      return 'progress';
+    }
 
-  if (progress === total) return 'completed';
+    if (progress === total) return 'completed';
+  }
 
   return 'disabled';
 };
 
-export const getMonthInfo = () => {
-  /* temporary mock */
-  const progress = 6;
-  const total = 6;
-  const colorKey = getColorKey(progress, total);
+export const getMonthInfo = async (monthName: string): Promise<MonthInfo> => {
+  const month = await getMonth(monthName);
 
-  return { progress, total, bgColor: colors[colorKey] };
+  if (!month) {
+    return {
+      progressKey: getProgressKey(),
+      progress: 0,
+      total: 0
+    };
+  }
+
+  const { bills } = month;
+  const progress = bills.filter(({ done }: { done: boolean }) => done).length;
+  const total = bills.length;
+
+  return {
+    progress,
+    total,
+    progressKey: getProgressKey(progress, total),
+    month
+  };
+};
+
+export const getMonths = () => {
+  return [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
 };

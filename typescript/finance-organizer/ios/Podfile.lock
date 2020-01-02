@@ -219,6 +219,8 @@ PODS:
     - React-cxxreact (= 0.61.3)
     - React-jsi (= 0.61.3)
     - ReactCommon/jscallinvoker (= 0.61.3)
+  - RNCAsyncStorage (1.7.1):
+    - React
   - RNGestureHandler (1.5.1):
     - React
   - RNReanimated (1.4.0):
@@ -258,6 +260,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -319,6 +322,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-community/async-storage"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
@@ -357,6 +362,7 @@ SPEC CHECKSUMS:
   React-RCTText: b8f895b94aa0e7778fef28d13f3d71eed4a10c3d
   React-RCTVibration: 262588c97551b0b1c675468cda857466ba5af18f
   ReactCommon: c2c63d9290b422ca6ad5b3663073a015dd892ae9
+  RNCAsyncStorage: 44395cb9c7c1523104c2b499eb426ef7aff82bca
   RNGestureHandler: 7add966bb5d90ee8cf38d4341f87814474357972
   RNReanimated: b2ab0b693dddd2339bd2f300e770f6302d2e960c
   RNScreens: 254da4b84f25971cbb30ed3ddc84131f23cac812

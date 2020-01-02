@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/Feather';
 import Modal from 'react-native-modal';
 
-import { Month } from '../Home/types';
+import { Month } from '../../utils/types';
 
 import { Header } from '../../components';
 
@@ -53,9 +53,10 @@ const MonthDetail = () => {
           <Icon name='plus' size={18} />
         </StyledPlusButton>
       </StyledContentContainer>
-      <StyledModal
+      <Modal
         isVisible={isModalOpen}
         onBackdropPress={toggleModal}
+        style={{ justifyContent: 'flex-end', margin: 0 }}
         avoidKeyboard
       >
         <StyledModalContainer>
@@ -68,7 +69,7 @@ const MonthDetail = () => {
             <Icon name='plus' size={16} color='#fafafa' />
           </StyledModalButton>
         </StyledModalContainer>
-      </StyledModal>
+      </Modal>
     </>
   );
 };
@@ -106,11 +107,6 @@ const StyledPlusButton = styled.TouchableOpacity`
 const StyledDeleteMonthButton = styled.TouchableOpacity`
   position: absolute;
   right: 12px;
-`;
-
-const StyledModal = styled(Modal)`
-  justify-content: flex-end;
-  margin: 0;
 `;
 
 const StyledModalContainer = styled.View`
