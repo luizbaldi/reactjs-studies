@@ -1,6 +1,6 @@
 export type Colors = 'empty' | 'progress' | 'completed' | 'disabled';
 
-export type Goal = {
+export type Bill = {
   id: number;
   label: string;
   done: boolean;
@@ -9,5 +9,5 @@ export type Goal = {
 export type Month = {
   name: string;
   disabled: boolean;
-  goals: Goal[];
+  bills: Bill[];
 };

@@ -6,7 +6,7 @@ import { useNavigation } from 'react-navigation-hooks';
 
 type Props = {
   title: string;
-  rightIcon?: React.ReactNode | null;
+  rightIcon?: React.ReactNode;
   backIcon?: boolean;
 };
 

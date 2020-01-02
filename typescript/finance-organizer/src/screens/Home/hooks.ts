@@ -5,62 +5,73 @@ export const useMonthsData = (): Month[] => {
     {
       name: 'January',
       disabled: false,
-      goals: []
+      bills: [
+        {
+          id: 1,
+          done: false,
+          label: 'Do stuff'
+        },
+        {
+          id: 2,
+          done: true,
+          label: 'Do more'
+        }
+      ]
     },
     {
       name: 'February',
       disabled: false,
-      goals: []
+      bills: []
     },
     {
       name: 'March',
       disabled: false,
-      goals: []
+      bills: []
     },
     {
       name: 'April',
       disabled: false,
-      goals: []
+      bills: []
     },
     {
       name: 'May',
       disabled: false,
-      goals: []
+      bills: []
     },
     {
       name: 'June',
       disabled: false,
-      goals: []
+      bills: []
     },
     {
       name: 'July',
       disabled: false,
-      goals: []
+      bills: []
     },
     {
       name: 'August',
       disabled: false,
-      goals: []
+      bills: []
     },
     {
       name: 'September',
       disabled: false,
-      goals: []
+      bills: []
     },
     {
       name: 'October',
       disabled: false,
-      goals: []
+      bills: []
     },
     {
       name: 'November',
       disabled: false,
-      goals: []
+      bills: []
     },
     {
       name: 'December',
       disabled: false,
-      goals: []
+      bills: []
     }
   ];
 };
