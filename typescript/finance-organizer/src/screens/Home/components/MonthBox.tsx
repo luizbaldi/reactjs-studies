@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Alert, View } from 'react-native';
 import styled from 'styled-components/native';
-import { useNavigation } from 'react-navigation-hooks';
+import { useNavigation, useFocusEffect } from 'react-navigation-hooks';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { MonthInfo } from '../types';
@@ -39,11 +39,11 @@ const MonthBox = ({ monthName }: Props) => {
     );
   };
 
-  useEffect(() => {
+  useFocusEffect(() => {
     (async () => {
       setMonthInfo(await getMonthInfo(monthName));
     })();
-  }, []);
+  });
 
   return (
     <StyledButton onPress={onMonthPress}>

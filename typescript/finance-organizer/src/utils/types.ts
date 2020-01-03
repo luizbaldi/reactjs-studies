@@ -1,4 +1,9 @@
-import { Bill } from '../screens/Home/types';
+export type Bill = {
+  id: string;
+  label: string;
+  done: boolean;
+  price: number;
+};
 
 export type Month = {
   name: string;

@@ -14,6 +14,7 @@
   "dependencies": {
     "@react-native-community/async-storage": "^1.7.1",
     "date-fns": "^2.8.1",
+    "immer": "^5.1.0",
     "react": "16.9.0",
     "react-native": "0.61.3",
     "react-native-gesture-handler": "^1.5.1",
@@ -25,6 +26,7 @@
     "react-navigation": "^4.0.10",
     "react-navigation-hooks": "^1.1.0",
     "react-navigation-stack": "^1.10.3",
+    "shortid": "^2.2.15",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
@@ -34,6 +36,7 @@
     "@types/react": "^16.9.11",
     "@types/react-native": "^0.60.22",
     "@types/react-native-vector-icons": "^6.4.4",
+    "@types/shortid": "^0.0.29",
     "@types/styled-components": "^4.4.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
