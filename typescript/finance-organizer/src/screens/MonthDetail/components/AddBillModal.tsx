@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Alert } from 'react-native';
 import styled from 'styled-components/native';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/Feather';
@@ -6,6 +7,8 @@ import shortid from 'shortid';
 
 import { Month } from '../../../utils/types';
 import { setMonth as setStorageMonth } from '../../../utils/storage';
+
+import { Input } from '../../../components';
 
 type Props = {
   isOpen: boolean;
@@ -19,6 +22,13 @@ const AddBillModal = ({ isOpen, toggleModal, month, setMonth }: Props) => {
   const [billValue, setBillValue] = useState('');
 
   const onAddBill = () => {
+    if (!billName || !billValue) {
+      return Alert.alert(
+        'Whops',
+        'Please fill both name and value to continue :)'
+      );
+    }
+
     setBillName('');
     setBillValue('');
     toggleModal();
@@ -52,13 +62,15 @@ const AddBillModal = ({ isOpen, toggleModal, month, setMonth }: Props) => {
           <Icon name='x' size={16} />
         </StyledCloseButton>
         <StyledModalTitle>Add a bill</StyledModalTitle>
-        <StyledInput
-          placeholder='Name'
+        <Input
+          placeholder='Ex: Bob'
           value={billName}
+          label='Name'
           onChangeText={setBillName}
         />
-        <StyledInput
-          placeholder='Value'
+        <Input
+          label='Value'
+          placeholder='Ex: 4.20'
           value={billValue}
           onChangeText={setBillValue}
           keyboardType='numeric'
@@ -78,12 +90,6 @@ const StyledContainer = styled.View`
   align-items: center;
   padding-bottom: 28px;
   padding-horizontal: 12px;
-`;
-
-const StyledInput = styled.TextInput`
-  height: 40px;
-  width: 100%;
-  padding-left: 4px;
 `;
 
 const StyledAddButton = styled.TouchableOpacity`
