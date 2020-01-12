@@ -10,12 +10,31 @@ import BillsBox from './components/BillsBox';
 const MonthDetail = () => {
   const { getParam } = useNavigation();
   const [month, setMonth] = useState<Month>(getParam('month'));
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState({
+    paid: 0,
+    brute: 0
+  });
 
   useEffect(() => {
-    const newTotal = month.bills.reduce((acum, bill) => {
-      return acum + bill.price;
-    }, 0);
+    const newTotal = month.bills.reduce(
+      (acum, bill) => {
+        if (bill.done) {
+          return {
+            brute: acum.brute + bill.price,
+            paid: acum.paid + bill.price
+          };
+        }
+
+        return {
+          ...acum,
+          brute: acum.brute + bill.price
+        };
+      },
+      {
+        paid: 0,
+        brute: 0
+      }
+    );
 
     setTotal(newTotal);
   }, [month]);
@@ -27,8 +46,14 @@ const MonthDetail = () => {
         <BillsBox month={month} setMonth={setMonth} />
         <StyledDivider />
         <StyledTotalRow>
+          <Label>
+            Total <Label fontSize={14}>(paid)</Label>
+          </Label>
+          <Label>R$ {total.paid.toFixed(2)}</Label>
+        </StyledTotalRow>
+        <StyledTotalRow marginTop={12}>
           <Label>Total</Label>
-          <Label>R$ {total.toFixed(2)}</Label>
+          <Label>R$ {total.brute.toFixed(2)}</Label>
         </StyledTotalRow>
       </StyledContentContainer>
     </>
@@ -51,6 +76,7 @@ const StyledTotalRow = styled.View`
   flex-direction: row;
   justify-content: space-between;
   padding-horizontal: 22px;
+  margin-top: ${({ marginTop }) => marginTop || 0};
 `;
 
 MonthDetail.navigationOptions = {

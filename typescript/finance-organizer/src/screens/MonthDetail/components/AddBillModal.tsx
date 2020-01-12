@@ -63,7 +63,7 @@ const AddBillModal = ({ isOpen, toggleModal, month, setMonth }: Props) => {
         </StyledCloseButton>
         <StyledModalTitle>Add a bill</StyledModalTitle>
         <Input
-          placeholder='Ex: Bob'
+          placeholder='Ex: Aluguel'
           value={billName}
           label='Name'
           onChangeText={setBillName}
